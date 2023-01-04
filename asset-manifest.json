@@ -1,16 +1,22 @@
 {
   "files": {
-    "main.css": "/solc-browserify-example/static/css/main.073c9b0a.css",
-    "main.js": "/solc-browserify-example/static/js/main.9f4f85b9.js",
+    "main.css": "/solc-browserify-example/static/css/main.153b8912.css",
+    "main.js": "/solc-browserify-example/static/js/main.aa29b84f.js",
     "static/js/787.76147953.chunk.js": "/solc-browserify-example/static/js/787.76147953.chunk.js",
-    "static/media/logo.svg": "/solc-browserify-example/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/roboto-mono-all-400-normal.woff": "/solc-browserify-example/static/media/roboto-mono-all-400-normal.615f3bbd43698e99d078.woff",
+    "static/media/roboto-mono-cyrillic-ext-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-cyrillic-ext-400-normal.13c026e0294440303c69.woff2",
+    "static/media/roboto-mono-latin-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-latin-400-normal.d3026ee29728abffa752.woff2",
+    "static/media/roboto-mono-latin-ext-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-latin-ext-400-normal.22aea4e27b4b7405853a.woff2",
+    "static/media/roboto-mono-cyrillic-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-cyrillic-400-normal.a0d40ee5847af8bed2df.woff2",
+    "static/media/roboto-mono-greek-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-greek-400-normal.95e7a382e12921ef32ee.woff2",
+    "static/media/roboto-mono-vietnamese-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-vietnamese-400-normal.a9575edb558363648d81.woff2",
     "index.html": "/solc-browserify-example/index.html",
-    "main.073c9b0a.css.map": "/solc-browserify-example/static/css/main.073c9b0a.css.map",
-    "main.9f4f85b9.js.map": "/solc-browserify-example/static/js/main.9f4f85b9.js.map",
+    "main.153b8912.css.map": "/solc-browserify-example/static/css/main.153b8912.css.map",
+    "main.aa29b84f.js.map": "/solc-browserify-example/static/js/main.aa29b84f.js.map",
     "787.76147953.chunk.js.map": "/solc-browserify-example/static/js/787.76147953.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.9f4f85b9.js"
+    "static/css/main.153b8912.css",
+    "static/js/main.aa29b84f.js"
   ]
 }
