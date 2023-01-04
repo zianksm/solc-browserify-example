@@ -3,6 +3,7 @@ import "./App.css";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "./prism.css";
+import "@fontsource/roboto-mono"; // Defaults to weight 400.
 // TODO build simple editor with syntax highlighting.
 
 function App() {
@@ -35,25 +36,36 @@ contract SimpleStorage {
   };
   return (
     <div id="container-main">
-      <h1 id="headline">Solc In the Broswer!</h1>
+      <h1 className="sentence" id="headline">
+        Solc In the Broswer!
+      </h1>
       <div id="code-container">
-        <h3 id="depedencies-disclaimer">
+        <h3 className="sentence" id="depedencies-disclaimer">
           *support openzeppelin depedencies(wip)
         </h3>
-        <Editor
-          className="code-style-container"
-          id="text-code"
-          highlight={(code) => _highlight(code)}
-          value={code}
-          onValueChange={(code) => setCode(code)}
-          tabSize={4}
-          preClassName="language-solidity"
-          padding={10}
-          style={{
-            fontFamily: '"Fira code", "Fira Mono", monospace',
-            fontSize: 12,
-          }}
-        ></Editor>
+        <div id="editor">
+          <Editor
+            className="code-style-container"
+            id="text-code"
+            highlight={(code) => _highlight(code)}
+            value={code}
+            onValueChange={(code) => setCode(code)}
+            tabSize={4}
+            preClassName="language-solidity"
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 12,
+            }}
+          ></Editor>
+          <textarea
+            readOnly={true}
+            id="terminal"
+            className="code-style-container"
+          >
+            aa
+          </textarea>
+        </div>
       </div>
       <button id="button-compile">compile</button>
     </div>

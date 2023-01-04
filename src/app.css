@@ -4,15 +4,16 @@
   justify-content: center;
   align-items: center;
 }
-.code-style-container {
-  color: white;
-  background-color: rgb(29, 27, 48);
+
+.sentence {
+  font-family: "Roboto Mono", "monospace";
 }
-#text-code {
+.code-style-container {
+  background-color: rgb(29, 27, 48);
   border: 1px solid rgb(29, 27, 48);
   border-radius: 1rem;
-  height: 70vh;
-  width: 70vh;
+  height: 50vh;
+  width: 100vh;
   overflow-y: auto !important;
 }
 
@@ -23,4 +24,45 @@
 
 body::-webkit-scrollbar {
   display: none;
+}
+#depedencies-disclaimer {
+  font-size: 1rem;
+}
+#editor {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+#button-compile {
+  font-family: "Roboto Mono", "monospace";
+  text-align: center;
+  color: rgb(29, 27, 48);
+  background-color: white;
+  padding: 1.5rem;
+  font-size: 2rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  transition-duration: 0.5s;
+  border: 2px;
+}
+
+#button-compile:hover {
+  background: transparent;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  color: white;
+}
+
+#button-compile:active {
+  transform: scale(0.5);
+  background-color: white;
+  color: rgb(29, 27, 48);
+}
+
+body {
+  color: white;
+  background-image: url(https://wallpaper.dog/large/20484925.jpg);
 }
