@@ -7,6 +7,7 @@
 
 .sentence {
   font-family: "Roboto Mono", "monospace";
+  color: white;
 }
 .code-style-container {
   background-color: rgb(29, 27, 48);
@@ -15,6 +16,7 @@
   height: 50vh;
   width: 100vh;
   overflow-y: auto !important;
+  color: white;
 }
 
 #code-container {
@@ -63,6 +65,5 @@ body::-webkit-scrollbar {
 }
 
 body {
-  color: white;
   background-image: url(https://wallpaper.dog/large/20484925.jpg);
 }

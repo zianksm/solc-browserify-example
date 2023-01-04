@@ -3,7 +3,7 @@
     [
       "prismjs",
       {
-        "languages": ["solidity", "javascript", "css", "markup"],
+        "languages": ["solidity", "javascript", "css", "markup", "bash"],
         "plugins": ["line-numbers"],
         "theme": "okaidia",
         "css": true
