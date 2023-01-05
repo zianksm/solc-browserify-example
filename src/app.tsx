@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "./prism.css";
 import { Solc, CompilerOutput } from "solc-browserify";
 import "@fontsource/roboto-mono"; // Defaults to weight 400.
+import { Button } from "./button";
 // TODO finish compiler logic and add card to show & copy abi, bytecode
+
+const contractToken = "Compiled_Contracts";
 
 function App() {
   Prism.manual = true;
@@ -32,8 +35,9 @@ contract SimpleStorage {
 }`
   );
 
+  const logRef = useRef<any>();
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
-  const [terminalValue, setTerminalValue] = useState<string>();
+  const [terminalValue, setTerminalValue] = useState<string>("");
   const [compiler, setCompiler] = useState<Solc>();
   const [isCompiling, setCompilingStatus] = useState<boolean>();
   const [output, setOutput] = useState<CompilerOutput>();
@@ -44,7 +48,6 @@ contract SimpleStorage {
   };
 
   const handleCompilerOutput = (_output: CompilerOutput) => {
-    console.log(_output);
     const errors = _output.errors ?? [];
 
     let erorrLen = 0;
@@ -73,7 +76,7 @@ contract SimpleStorage {
   };
 
   const compile = async () => {
-    if (isCompiling && !isInitialized) {
+    if (isCompiling || !isInitialized) {
       return;
     }
 
@@ -87,7 +90,7 @@ contract SimpleStorage {
   };
 
   useEffect(() => {
-    setTerminalValue("fetching compiler binary...");
+    setTerminalValue((prev) => prev.concat("\nfetching compiler binary..."));
 
     const compiler = new Solc((solc) => {
       setCompiler(solc);
@@ -96,41 +99,89 @@ contract SimpleStorage {
     });
   }, []);
 
+  useEffect(() => {
+    logRef.current.scrollTop = logRef.current.scrollHeight;
+  }, [terminalValue]);
+
+  const handleTerminalClear = () => {
+    setTerminalValue("");
+  };
+
+  const handleEditorClear = () => {
+    setCode("");
+  };
+
+  const handleAbI = () => {
+    const contracts = output?.contracts[contractToken];
+    const separator = "--------------------";
+
+    let abi = "";
+
+    for (const i in contracts) {
+      abi = abi.concat(
+        separator,
+        " ",
+        i,
+        " v \n\n",
+
+        JSON.stringify(contracts[i].abi, undefined, 2),
+        "\n\n"
+      );
+    }
+    setTerminalValue(abi);
+  };
+
   return (
     <div id="container-main">
       <h1 className="sentence" id="headline">
         Solc In the Broswer!
       </h1>
+      <p className="sentence" id="depedencies-disclaimer">
+        *support openzeppelin depedencies(wip)
+      </p>
+
       <div id="code-container">
-        <h3 className="sentence" id="depedencies-disclaimer">
-          *support openzeppelin depedencies(wip)
-        </h3>
         <div id="editor">
-          <Editor
-            className="code-style-container"
-            id="text-code"
-            highlight={(code) => _highlight(code)}
-            value={code}
-            onValueChange={(code) => setCode(code)}
-            tabSize={4}
-            preClassName="language-solidity"
-            padding={10}
-            style={{
-              fontFamily: '"Fira code", "Fira Mono", monospace',
-              fontSize: 12,
-            }}
-          ></Editor>
-          <textarea
-            readOnly={true}
-            id="terminal"
-            className="code-style-container"
-            value={terminalValue}
-          ></textarea>
+          <span>
+            <Button name="clear" onClick={handleEditorClear}></Button>
+
+            <Editor
+              className="code-style-container"
+              id="text-code"
+              highlight={(code) => _highlight(code)}
+              value={code}
+              onValueChange={(code) => setCode(code)}
+              tabSize={4}
+              preClassName="language-solidity"
+              padding={10}
+              style={{
+                fontFamily: '"Fira code", "Fira Mono", monospace',
+                fontSize: 12,
+              }}
+            ></Editor>
+          </span>
+          <span>
+            <Button name="clear" onClick={handleTerminalClear}></Button>
+
+            {output !== undefined ? (
+              <span>
+                <Button onClick={handleAbI} name="ABI"></Button>
+              </span>
+            ) : (
+              ""
+            )}
+
+            <textarea
+              ref={logRef}
+              readOnly={true}
+              id="terminal"
+              className="code-style-container"
+              value={terminalValue}
+            ></textarea>
+          </span>
         </div>
       </div>
-      <button onClick={compile} id="button-compile">
-        compile
-      </button>
+      <Button name="compile" id="button-compile" onClick={compile}></Button>
     </div>
   );
 }
