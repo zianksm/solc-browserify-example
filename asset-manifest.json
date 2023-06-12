@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/solc-browserify-example/static/css/main.24664561.css",
-    "main.js": "/solc-browserify-example/static/js/main.afb34f20.js",
+    "main.js": "/solc-browserify-example/static/js/main.da251219.js",
     "static/js/787.76147953.chunk.js": "/solc-browserify-example/static/js/787.76147953.chunk.js",
     "static/media/roboto-mono-all-400-normal.woff": "/solc-browserify-example/static/media/roboto-mono-all-400-normal.615f3bbd43698e99d078.woff",
     "static/media/roboto-mono-cyrillic-ext-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-cyrillic-ext-400-normal.13c026e0294440303c69.woff2",
@@ -12,11 +12,11 @@
     "static/media/roboto-mono-vietnamese-400-normal.woff2": "/solc-browserify-example/static/media/roboto-mono-vietnamese-400-normal.a9575edb558363648d81.woff2",
     "index.html": "/solc-browserify-example/index.html",
     "main.24664561.css.map": "/solc-browserify-example/static/css/main.24664561.css.map",
-    "main.afb34f20.js.map": "/solc-browserify-example/static/js/main.afb34f20.js.map",
+    "main.da251219.js.map": "/solc-browserify-example/static/js/main.da251219.js.map",
     "787.76147953.chunk.js.map": "/solc-browserify-example/static/js/787.76147953.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.24664561.css",
-    "static/js/main.afb34f20.js"
+    "static/js/main.da251219.js"
   ]
 }
